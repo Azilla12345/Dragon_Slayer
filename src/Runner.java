@@ -52,15 +52,12 @@ public class Runner {
                     }
                     if (floor.getFloor()%5 == 0) {
                         player1.attacked(boss.attack());
-                        System.out.println(player1.name + " health: " + player1.getHealth());
-                        System.out.println("");
-                        Thread.sleep(500);
                     } else {
                         player1.attacked(enemy.attack());
-                        System.out.println(player1.name + " health: " + player1.getHealth());
-                        System.out.println("");
-                        Thread.sleep(500);
                     }
+                    System.out.println(player1.name + " health: " + player1.getHealth());
+                    System.out.println();
+                    Thread.sleep(500);
 
 
                 }
