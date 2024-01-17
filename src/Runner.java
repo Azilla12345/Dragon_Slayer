@@ -25,8 +25,8 @@ public class Runner {
 
         int moves = 1;
         boolean inRound = false;
-        Enemy enemy = new Enemy(floor);
-        Enemy boss = new Enemy(floor);
+        Dragon enemy = new Dragon(floor);
+        Dragon boss = new Dragon(floor);
 
         while (gameRunning) {
             if (inRound) {
@@ -38,7 +38,7 @@ public class Runner {
                     player1.action(action);
                     Thread.sleep(500);
                     if (action == 1) {
-                        enemy.attacked(player1.attack());
+                        enemy.attacked(player1.attack(), player1.dodge());
                     }
                     moves++;
                     Thread.sleep(500);

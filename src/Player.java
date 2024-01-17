@@ -2,7 +2,6 @@
  * This class is the player's class
  *
  * @author Hayden Mak
- * @author Ryan Chan
  */
 
 public class Player {
@@ -62,6 +61,10 @@ public class Player {
      */
     public int attack() {
         return Sword.getDamage();
+    }
+
+    public int dodge() {
+        return Sword.getDodge();
     }
 
     public void heal() {

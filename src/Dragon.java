@@ -1,15 +1,16 @@
-public class Enemy {
+public class Dragon {
     private Floors floor;
     double damage;
     boolean boss;
 
+
     int enemyHealth;
 
-    public Enemy(Floors floors) {
+    public Dragon(Floors floors) {
         floor = floors;
     }
 
-    public Enemy (Floors floors, boolean boss) {
+    public Dragon(Floors floors, boolean boss) {
         floor = floors;
         this.boss = boss;
     }
@@ -28,10 +29,17 @@ public class Enemy {
         return (int)(damage);
     }
 
-    public void attacked(int damage) {
-        enemyHealth = enemyHealth - damage;
-        System.out.println("Dragon attacked for " + damage + " damage");
-        System.out.println("Dragon health remaining: " + enemyHealth);
+
+
+    public void attacked(int damage, int dodge) {
+        if (((int)(Math.random())* 100) <= dodge) {
+            enemyHealth = enemyHealth - damage;
+            System.out.println("Dragon attacked for " + damage + " damage");
+            System.out.println("Dragon health remaining: " + enemyHealth);
+        } else {
+            System.out.println("Dragon dodged!");
+        }
+
     }
     public boolean isDead () {
         return enemyHealth <= 0;
