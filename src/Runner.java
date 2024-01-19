@@ -30,7 +30,7 @@ public class Runner {
 
         while (gameRunning) {
             if (inRound) {
-                if ((moves == 5) || (player1.health <= 0)) {
+                if ((floor.getFloor() == 6) || (player1.health <= 0)) {
                     gameRunning = false;
                 } else {
                     System.out.print("Pick action: 1.Attack, 2. Guard, 3. Heal:  ");
@@ -45,12 +45,12 @@ public class Runner {
                     if (enemy.isDead()) {
                         inRound = false;
                     }
-                    if (floor.getFloor()%5 == 0) {
+                    if (floor.getFloor() == 5) {
                         if (boss.isDead()) {
                             inRound = false;
                         }
                     }
-                    if (floor.getFloor()%5 == 0) {
+                    if (floor.getFloor() == 5) {
                         player1.attacked(boss.attack());
                     } else {
                         player1.attacked(enemy.attack());
@@ -66,7 +66,7 @@ public class Runner {
                 System.out.println("Moving to floor " + floor.getFloor() + "\n");
 
                 moves = 0;
-                if (floor.getFloor()%5 == 0) {
+                if (floor.getFloor() == 5) {
                     System.out.print("Welcome to the shop, what upgrade do you want to purchase?: 1 - +2 attack multiplier, 2 - +10 hp: ");
                     int answer = myScanner.nextInt();
                     if (answer == 1) {
