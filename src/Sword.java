@@ -9,7 +9,7 @@ public class Sword {
 
     public void setSwordStats() {
         if (swordType.equals("rusty")) {
-            damage = 10;
+            damage = 50;
             dodge = 20;
         } else if (swordType.equals("normal")) {
             damage = 20;

@@ -1,25 +1,36 @@
 public class Room {
-    int floor;
+    int room;
     String floorName;
     public Room(int floor) {
-        this.floor = floor;
+        this.room = floor;
     }
 
-    public Room(int floor , String floorName) {
-        this.floor = floor;
-        this.floorName = floorName;
+    public void setFloorName(int level) {
+        String[] names = new String[5];
+        names[0] = "The opening";
+        names[1] = "The mouth";
+        names[2] = "The lair";
+        names[3] = "The den";
+        names[4] = "The nest";
+
+        floorName = names[level];
+    }
+
+    public String getFloorName() {
+        return  floorName;
     }
 
     public int getFloor () {
-        return floor;
+        return room;
     }
 
     public void setFloor (int set) {
-        floor = set;
+        room = set;
     }
 
     public void addFloor() {
-        floor++;
+        room++;
+        setFloorName(room);
     }
 
 }

@@ -23,7 +23,6 @@ public class DragonSlayer {
         }
         System.out.println();
 
-        int moves = 1;
         boolean inRound = false;
         Dragon enemy = new Dragon(floor);
         Dragon boss = new Dragon(floor);
@@ -33,6 +32,7 @@ public class DragonSlayer {
                 if ((floor.getFloor() == 6) || (player1.health <= 0)) {
                     gameRunning = false;
                 } else {
+                    System.out.println("There are " + enemy.amount + " dragons");
                     System.out.print("Pick action: 1.Attack, 2. Guard, 3. Heal:  ");
                     action = myScanner.nextInt();
                     player1.action(action);
@@ -40,10 +40,14 @@ public class DragonSlayer {
                     if (action == 1) {
                         enemy.attacked(player1.attack());
                     }
-                    moves++;
                     Thread.sleep(500);
                     if (enemy.isDead()) {
-                        inRound = false;
+                        if (enemy.allDead()) {
+                            inRound = false;
+                        } else {
+                            enemy.standard();
+                        }
+
                     }
                     if (floor.getFloor() == 5) {
                         if (boss.isDead()) {
@@ -63,9 +67,8 @@ public class DragonSlayer {
                 }
             } else {
                 floor.addFloor();
-                System.out.println("Moving to floor " + floor.getFloor() + "\n");
+                System.out.println("Moving to " + floor.getFloorName() + "\n");
 
-                moves = 0;
                 if (floor.getFloor() == 5) {
                     System.out.print("Welcome to the shop, what upgrade do you want to purchase?: 1 - +2 attack multiplier, 2 - +10 hp: ");
                     int answer = myScanner.nextInt();
@@ -79,6 +82,7 @@ public class DragonSlayer {
                 }
                 inRound = true;
                 enemy.standard();
+                enemy.setAmount();
                 if (floor.getFloor() == 5) {
                     boss.boss();
                 }

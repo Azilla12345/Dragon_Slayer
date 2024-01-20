@@ -55,6 +55,7 @@ public class Player {
      * @return attack
      */
     public int attack() {
+        damage = Sword.getDamage();
         return Sword.getDamage();
     }
 
@@ -105,9 +106,8 @@ public class Player {
      * @param damage
      */
     public void attacked(int damage) {
-        if (dodge() <= (int)(Math.random() * 100) + 1 ) {
-            System.out.println("Attack was blocked!");
-
+        if (dodge() >= (int)(Math.random() * 100) + 1 ) {
+            System.out.println("Attack was dodged!");
         } else {
             health -= damage;
             System.out.println("Attacked with " + damage + " damage!");
