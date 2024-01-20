@@ -8,13 +8,14 @@ public class Player {
     /** The health of the player */
     int health;
     /** whether the players guard is up */
-    boolean guardUp;
 
     /** the player's name */
     String name;
     /** the player's damage*/
     int damage;
     int damageBuff;
+
+    boolean healthPotion;
 
     Sword Sword = new Sword();
 
@@ -25,16 +26,10 @@ public class Player {
     public Player() {
         name = "";
         health = 100;
-        guardUp = false;
         damageBuff = 0;
+        healthPotion = false;
     }
 
-    private Player (String name) {
-        this.name = name;
-        health = 100;
-        guardUp = false;
-
-    }
 
 
     /**
@@ -68,16 +63,19 @@ public class Player {
     }
 
     public void heal() {
-        health += 5;
-        System.out.println("Heal up 5 health points");
+        if (healthPotion) {
+            health += 5;
+            System.out.println("Heal up 5 health points");
+        } else {
+            System.out.println("You don't have a potion!");
+        }
+
     }
 
     /**
      * Set's the guardUp as a true
      */
-    public void guard() {
-        guardUp = true;
-    }
+
 
     /**
      * Attacks if action is 1, guards if action is 2
@@ -87,9 +85,7 @@ public class Player {
         if (action == 1) {
             attack();
             System.out.println(name + " attacks for " + damage + " damage");
-        } else if (action == 2) {
-            guard();
-        } else if (action ==3){
+        } else if (action ==2){
             heal();
         } else {
             System.out.println("Invalid action!");
@@ -109,9 +105,9 @@ public class Player {
      * @param damage
      */
     public void attacked(int damage) {
-        if (guardUp) {
+        if (dodge() <= (int)(Math.random() * 100) + 1 ) {
             System.out.println("Attack was blocked!");
-            guardUp = false;
+
         } else {
             health -= damage;
             System.out.println("Attacked with " + damage + " damage!");

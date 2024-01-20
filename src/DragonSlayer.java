@@ -1,11 +1,11 @@
 import java.util.Scanner;
 
-public class Runner {
+public class DragonSlayer {
     Scanner myScanner = new Scanner(System.in);
 
     int action;
 
-    Floors floor = new Floors(0);
+    Room floor = new Room(0);
 
     boolean gameRunning = true;
     Player player1 = new Player();
@@ -38,7 +38,7 @@ public class Runner {
                     player1.action(action);
                     Thread.sleep(500);
                     if (action == 1) {
-                        enemy.attacked(player1.attack(), player1.dodge());
+                        enemy.attacked(player1.attack());
                     }
                     moves++;
                     Thread.sleep(500);

@@ -1,11 +1,11 @@
-public class Floors {
+public class Room {
     int floor;
     String floorName;
-    public Floors(int floor) {
+    public Room(int floor) {
         this.floor = floor;
     }
 
-    public Floors(int floor , String floorName) {
+    public Room(int floor , String floorName) {
         this.floor = floor;
         this.floorName = floorName;
     }

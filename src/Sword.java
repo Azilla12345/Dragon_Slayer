@@ -13,10 +13,10 @@ public class Sword {
             dodge = 20;
         } else if (swordType.equals("normal")) {
             damage = 20;
-            dodge = 10;
+            dodge = 30;
         } else {
             damage = 100;
-            dodge = 0;
+            dodge = 40;
         }
     }
 
