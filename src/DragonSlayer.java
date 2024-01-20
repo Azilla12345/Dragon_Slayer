@@ -42,6 +42,7 @@ public class DragonSlayer {
                     }
                     Thread.sleep(500);
                     if (enemy.isDead()) {
+                        player1.getLoot(enemy.loot());
                         if (enemy.allDead()) {
                             inRound = false;
                         } else {

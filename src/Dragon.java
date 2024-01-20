@@ -6,6 +6,8 @@ public class Dragon {
     int amount;
     int killed;
 
+    int loot;
+
     public Dragon(Room room) {
         level = (int)(Math.random()* 4) +1;
     }
@@ -14,6 +16,7 @@ public class Dragon {
     public void standard() {
         enemyHealth = 100;
         damage = level * 5 + (int)(Math.random()*5)+ 1;
+        loot = ((int)(Math.random()*5) + 1);
     }
 
     public int getAmount() {
@@ -34,10 +37,10 @@ public class Dragon {
     }
 
     public void attacked(int damage) {
-            enemyHealth = enemyHealth - damage;
-            System.out.println("Dragon attacked for " + damage + " damage");
-            System.out.println("Dragon health remaining: " + enemyHealth);
-        }
+        enemyHealth = enemyHealth - damage;
+        System.out.println("Dragon attacked for " + damage + " damage");
+        System.out.println("Dragon health remaining: " + enemyHealth);
+    }
 
 
     public boolean isDead () {
@@ -51,5 +54,7 @@ public class Dragon {
         return amount == 0;
     }
 
-
+    public int loot() {
+        return loot;
+    }
 }

@@ -17,6 +17,8 @@ public class Player {
 
     boolean healthPotion;
 
+    int gold;
+
     Sword Sword = new Sword();
 
 
@@ -28,6 +30,7 @@ public class Player {
         health = 100;
         damageBuff = 0;
         healthPotion = false;
+        gold = 0;
     }
 
 
@@ -111,6 +114,21 @@ public class Player {
         } else {
             health -= damage;
             System.out.println("Attacked with " + damage + " damage!");
+        }
+    }
+
+    public void getLoot(int loot) {
+        if (loot == 0) {
+            System.out.println("You got a new sword!");
+            Sword.upgrade();
+        } else if (loot == 1) {
+            System.out.println("You healed up a little");
+            health+= 10;
+        } else if (loot == 2) {
+            System.out.println("You found more gold!");
+            gold += 50;
+        } else {
+            System.out.println("You found nothing");
         }
     }
 
