@@ -98,12 +98,8 @@ public class Player {
         }
     }
 
-    public void healNow(String heal) {
-        if (heal.equals("Y")) {
-            heal();
-        } else {
-            System.out.println("Ok then, save it for later!");
-        }
+    public int getGold() {
+        return gold;
     }
 
     /**
@@ -125,10 +121,19 @@ public class Player {
             search();
         }
         else {
-            System.out.println("Invalid action!");
+            health -= 50;
         }
     }
 
+
+    public void reset() {
+        name = "";
+        health = 100;
+        damageBuff = 0;
+        healthPotion = false;
+        gold = 0;
+        searched = false;
+    }
     public void healthBuff(int upgrade) {
         health += upgrade;
     }
@@ -151,6 +156,7 @@ public class Player {
     }
 
     public void getLoot(int loot) {
+        gold += 10;
         if (loot == 0) {
             System.out.println("You got a new sword!");
             Sword.upgrade();
