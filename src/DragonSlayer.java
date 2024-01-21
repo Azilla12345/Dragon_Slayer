@@ -4,6 +4,7 @@ public class DragonSlayer {
     Scanner myScanner = new Scanner(System.in);
 
     int action;
+    String response;
 
     Room floor = new Room(0);
 
@@ -36,6 +37,16 @@ public class DragonSlayer {
                     System.out.print("Pick action: 1.Attack, 2. Guard, 3. Heal:  ");
                     action = myScanner.nextInt();
                     player1.action(action);
+                    if (action == 3) {
+                        myScanner.nextLine();
+                        System.out.println("Do you want to use it now? (Y if yes, N if no): ");
+                        response = myScanner.nextLine();
+                        if ((response.equals("Y"))|| response.equals("y")) {
+                            player1.heal();
+                        } else {
+                            System.out.println("Save it then!");
+                        }
+                    }
                     Thread.sleep(500);
                     if (action == 1) {
                         enemy.attacked(player1.attack());
@@ -63,8 +74,6 @@ public class DragonSlayer {
                     System.out.println(player1.name + " health: " + player1.getHealth());
                     System.out.println();
                     Thread.sleep(500);
-
-
                 }
             } else {
                 floor.addFloor();
@@ -84,6 +93,7 @@ public class DragonSlayer {
                 inRound = true;
                 enemy.standard();
                 enemy.setAmount();
+                player1.setSearched();
                 if (floor.getFloor() == 5) {
                     boss.boss();
                 }

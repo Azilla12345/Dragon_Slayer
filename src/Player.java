@@ -19,6 +19,8 @@ public class Player {
 
     int gold;
 
+    boolean searched;
+
     Sword Sword = new Sword();
 
 
@@ -31,6 +33,7 @@ public class Player {
         damageBuff = 0;
         healthPotion = false;
         gold = 0;
+        searched = false;
     }
 
 
@@ -73,7 +76,34 @@ public class Player {
         } else {
             System.out.println("You don't have a potion!");
         }
+    }
 
+    public void setSearched() {
+        searched = false;
+    }
+
+    public void search() {
+        if (searched) {
+            System.out.println("you have already searched!");
+        } else {
+            System.out.println("You found a health potion!");
+            if (healthPotion) {
+                System.out.println("But you already have one!");
+            } else {
+                System.out.println("You got one health potion!");
+                healthPotion = true;
+
+            }
+            searched = true;
+        }
+    }
+
+    public void healNow(String heal) {
+        if (heal.equals("Y")) {
+            heal();
+        } else {
+            System.out.println("Ok then, save it for later!");
+        }
     }
 
     /**
@@ -91,7 +121,10 @@ public class Player {
             System.out.println(name + " attacks for " + damage + " damage");
         } else if (action ==2){
             heal();
-        } else {
+        } else if (action == 3) {
+            search();
+        }
+        else {
             System.out.println("Invalid action!");
         }
     }
