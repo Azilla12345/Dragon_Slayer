@@ -3,7 +3,7 @@ public class Sword {
     public int dodge;
 
     public Sword() {
-        damage = 30;
+        damage = 30 + (int)(Math.random()*20) + 1;
         dodge = 10;
     }
     public void upgrade() {

@@ -33,4 +33,8 @@ public class Room {
         setFloorName(room);
     }
 
+    public boolean search() {
+        return  true;
+    }
+
 }

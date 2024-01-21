@@ -161,7 +161,6 @@ public class DragonSlayer {
             }
         } if (game.equals("Quit")){
             System.out.println("See you next time!");
-            return;
         }
 
     }

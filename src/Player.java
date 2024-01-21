@@ -71,8 +71,8 @@ public class Player {
 
     public void heal() {
         if (healthPotion) {
-            health += 5;
-            System.out.println("Heal up 5 health points");
+            health += 15;
+            System.out.println("Heal up 15 health points");
         } else {
             System.out.println("You don't have a potion!");
         }
@@ -121,7 +121,8 @@ public class Player {
             search();
         }
         else {
-            health -= 50;
+            System.out.println("That's not an option!  You got hurt from confusion!");
+            health -= 5;
         }
     }
 
