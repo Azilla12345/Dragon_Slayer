@@ -52,6 +52,7 @@ public class DragonSlayer {
 
 
             for (int i = 0; i <= 3; i++) {
+                //In order to make it easier to understand the text, there's a loading time!
                 System.out.println("Loading...");
                 Thread.sleep(500);
             }
@@ -147,6 +148,7 @@ public class DragonSlayer {
             myScanner.nextLine();
             System.out.println("Want to play again?(Y or N): ");
             playAgain = myScanner.nextLine();
+            //if the player wants to go at it again, they can try thanks to this code!
             if (playAgain.equals("Y")) {
                 System.out.println("Welcome back to the menu!");
                 System.out.println("Enter, Score, or Quit: ");
