@@ -85,6 +85,9 @@ public class Player {
     public void search() {
         if (searched) {
             System.out.println("you have already searched!");
+            int goldFound = (int)(Math.random()*10) + 1;
+            System.out.println("Instead, you found " + goldFound + " gold!");
+            gold += goldFound;
         } else {
             System.out.println("You found a health potion!");
             if (healthPotion) {

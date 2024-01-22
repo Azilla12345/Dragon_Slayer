@@ -15,7 +15,7 @@ public class Dragon {
 
     public void standard() {
         enemyHealth = 100;
-        damage = level * 5 + (int)(Math.random()*5)+ 1;
+        damage = level * 2 + (int)(Math.random()*5)+ 1;
         loot = ((int)(Math.random()*5) + 1);
     }
 
